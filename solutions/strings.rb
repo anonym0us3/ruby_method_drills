@@ -27,8 +27,8 @@ def spell_out(word)
   word.downcase.split("").join("-")
 end
 
-def seperate(word, seperator="-")
-  word.downcase.split("").join(seperator)
+def separate(word, separator="-")
+  word.downcase.split("").join(separator)
 end
 
 def croon(lyric)

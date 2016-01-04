@@ -36,6 +36,10 @@ end
   # returns nil if it cannot find the 'answer' keyword argument
   # complains when given non-keyword arguments
 
+def find_answer(**keyw_arg)
+  keyw_arg[:answer]
+end
+
 ##############################
 #### MANIPULATING STRINGS ####
 ##############################
@@ -43,27 +47,58 @@ end
   # returns the first letter of the word
   # lowercases the first letter of the word
 
+def first_char(stuff)
+  stuff[0].downcase
+end
+
 #polly_wanna
   # echoes the original word
   # repeats the original word 3 times
 
+def polly_wanna(orig_word)
+  orig_word*3
+end
+
 #count_chars
   # returns the number of characters in a string
+
+def count_chars(string)
+  string.length
+end
 
 #yell
   # convert the message to uppercase
   # adds an exclamation point to the end of the message
 
+def yell(message)
+#  puts message.upcase + "!" #why didn't this pass the test?
+  message.upcase + "!"
+end
+
 #to_telegram
   # replaces periods with ' STOP'
+
+def to_telegram(telegram)
+  telegram.gsub( ".", " STOP" )
+end
 
 #spell_out
   # returns the input string, with characters seperated by dashes
   # converts the string to lowercase
 
-#seperate
-  # seperates characters with a custom seperator, when supplied with one
-  # seperates characters with dashes (by default)
+def spell_out(input)
+  input.downcase.split("").join("-")
+end
+
+#separate
+  # separates characters with a custom separator, when supplied with one
+  # separates characters with dashes (by default)
+
+#  <crying!> at the misspellings of sepA(!)rate/rator/rates
+
+def separate(characters, sepArator="-")
+  characters.split("").join(sepArator)
+end
 
 #croon
   # seperates word characters with dashes
