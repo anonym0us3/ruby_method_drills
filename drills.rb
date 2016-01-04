@@ -4,16 +4,32 @@
 #say_hello
   # returns 'hello'
 
+def say_hello
+  "hello" # Why doesn't this use puts???
+end
+
 #echo
   # returns the input string
+
+def echo(input)
+  input #why doesn't this use puts???
+end
 
 #eddie_izzards_height
   # calculates Eddie Izzards height (67in)
   # and takes into account the height of his heel (default: 0in)
 
+def eddie_izzards_height( heel_height = 0 )
+  67 + heel_height
+end
+
 #how_many_args
   # accepts any number of arguments without complaint
   # returns the total number of arguments passed to the function
+
+def how_many_args(*args)
+  args.length
+end
 
 #find_answer
   # returns the value associated with the 'answer' keyword argument
