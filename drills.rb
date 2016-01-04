@@ -96,17 +96,26 @@ end
 
 #  <crying!> at the misspellings of sepA(!)rate/rator/rates
 
-def separate(characters, sepArator="-")
-  characters.split("").join(sepArator)
+def separate(characters, custom_sepArator="-")
+  characters.split("").join(custom_sepArator)
 end
 
 #croon
   # seperates word characters with dashes
   # preserves whitespace between words
 
+def croon(song_lyrics)
+  song_lyrics.split(" ").map {|word| word.split("").join("-") }.join(" ")
+end
+
 #palindrome_word?
   # determines whether a single word is a palindrome
   # ignores case
+
+def palindrome_word?(word)
+  normalized = word.downcase
+  normalized.reverse == normalized
+end
 
 #palindrome_sentence?
   # determines whether a sentence is a palindrome
@@ -114,10 +123,19 @@ end
   # ignores whitespace
   # ignores punctuation
 
+def palindrome_sentence?(sentence)
+  normalized = sentence.gsub(/[^a-z]/i, "").downcase
+  normalized.reverse == normalized
+end
+
 #is_vowel
   # determines whether a given character is a vowel
   # ignores case
   # handles weird inputs gracefully
+
+def is_vowel(character)
+  character.is_a?(String) && !!character.match(/[aeiou]/i)
+end  
 
 #add_period
   # adds a period to the end of the sentence
@@ -131,34 +149,77 @@ end
 #count_spaces
   # counts the spaces in a string
 
+def count_spaces(string)
+  count = 0
+  space = " "
+  string.each_char do |char|
+    if char == space
+      count += 1
+    end
+  end
+  count
+end
+
 #string_lengths
   # converts a list of strings to a list of string lengths
+
+def string_lengths(strings_list)
+  strings_list.map { |string| string.length }
+end
 
 #remove_falsy_values
   # filters out falsy values from a list
 
+def remove_falsy_values(list)
+  list.select { |value| !!value }
+end
+
 #exclude_last
   # removes the last item from an array
   # removes the last item from a string
+
+def exclude_last(input)
+  input[0..-2]
+end
 
 #exclude_first
   # removes the first item from an array
   # removes the first character from a string
   # does not alter the original input (non-destructive)
 
+def exclude_first(input)
+  input[1..-1]
+end
+
 #exclude_ends
   # removes the first and last items from an array
   # removes the first and last characters from a string
 
+def exclude_ends(input)
+  input[1..-2]
+end
+
 #select_every_even
   # returns a list of even-indexed items
+
+def select_every_even(items)
+  items.select.with_index { |item, index| item if index.even? }
+end
 
 #select_every_odd
   # returns a list of odd-indexed items
 
+def select_every_odd(items)
+  items.select.with_index { |item, index| item if index.odd? }
+end
+
 #select_every_n
   # returns a list of items at an index evenly divisible by n
   # defaults to an n value of 1
+
+def select_every_n(items, int=1)
+  items.select.with_index { |item, index| item if index%int == 0 }
+end
 
 #compile_agenda
   # converts a list of agenda items into a single string
